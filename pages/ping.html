@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../bower_components/angular/angular.min.js" charset="utf-8"></script>
+    <script src="../bower_components/angular-ping/dist/angular-ping.min.js" charset="utf-8"></script>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+    angular.module('testPing',['angular.ping'])
+      .controller('testController',['netTesting',function(netTesting){
+          netTesting.ping('www.aliyun.com',function(){
+             console.log(arguments);
+          });
+
+          netTesting.ping('192.168.0.1',function(data){
+            console.log(data);
+          });
+     }])
+    </script>
+  </head>
+  <body ng-app="testPing">
+    <div ng-controller="testController">
+      <a href="http://localhost:8000">teste</a>
+
+    </div>
+  </body>
+</html>

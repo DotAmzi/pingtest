@@ -1,0 +1,7 @@
+{
+	"name": "TestPing",
+  "dest": "./",
+  "icon": "icon.png",
+  "description": "TestPing",
+  "productDescription": "Test de ping para jogos" 
+}
