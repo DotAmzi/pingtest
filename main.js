@@ -1,6 +1,5 @@
 const {app, BrowserWindow, ipcMain} = require('electron')
 var ping = require('ping');
-
 let win
 
 
@@ -12,20 +11,25 @@ function createWindow () {
   // Open the DevTools.
   win.webContents.openDevTools()
 
+  var count = []
+
+  for (var i = 0; i < 50; i++) {
+    count.push(i);
+  }
 
   ipcMain.on('testPing', function(event, arg) {
-    console.log('entrou aqui');
-    return new Promise(resolve => {
-      var host = '8.23.24.100';
 
-      for(i=0;i<20;i++){
-        ping.promise.probe(host)
-            .then(function (res) {
-              console.log(res.time);
-                resolve(res.time);
-            });
-      }
-    });
+    let middle = 0;
+    count.map(countUnique => {
+      ping.promise.probe('8.23.24.100')
+      .then(res => {
+        middle += res.time;
+        if(countUnique === 19){
+          event.sender.send('pingMiddle', middle/20);
+        }
+      });
+    })
+
   });
 
   win.on('closed', () => {

@@ -5,15 +5,19 @@
     <title></title>
     <script type="text/javascript">
     const ipcRenderer = require('electron').ipcRenderer;
+    ipcRenderer.on('pingMiddle', (event, arg) => {
+      document.getElementById("ping").innerHTML = arg;
+    })
     async function testPing() {
-      await ipcRenderer.send('testPing', 'hey');
+      ipcRenderer.send('testPing', 'hey');
     }
     </script>
   </head>
   <body ng-app="testPing">
     <div ng-controller="testController">
       <a onclick="testPing()">teste</a>
-
+      <div id="ping">
+      </div>
     </div>
   </body>
 </html>
