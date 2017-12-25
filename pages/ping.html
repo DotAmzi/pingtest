@@ -3,21 +3,49 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="./components/material-design-lite/material.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./components/material-design-lite/material.min.js"></script>
     <script type="text/javascript">
-    const ipcRenderer = require('electron').ipcRenderer;
-    ipcRenderer.on('pingMiddle', (event, arg) => {
-      document.getElementById("ping").innerHTML = arg;
-    })
-    async function testPing() {
-      ipcRenderer.send('testPing', 'hey');
-    }
+      const ipcRenderer = require('electron').ipcRenderer;
+      ipcRenderer.on('pingMiddle', (event, arg) => {
+        setTimeout(function(){
+          document.getElementById("loading").style.display = "none";
+          document.getElementById("ping").style.display = "block";
+          document.getElementById("ping").innerHTML = 'Seu  ping é: <p><br>' + parseInt(arg) + 'ms</p>';
+        }, 5000);
+      })
+      async function testPing() {
+        document.getElementById("loading").style.display = "block";
+        document.getElementById("ping").style.display = "none";
+        ipcRenderer.send('testPing', 'hey');
+      }
     </script>
   </head>
-  <body ng-app="testPing">
-    <div ng-controller="testController">
-      <a onclick="testPing()">teste</a>
-      <div id="ping">
+  <body>
+    <div class="demo-layout-transparent">
+    </div>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--6-col-desktop" style="text-align: center">
+        Selecione seu jogo
+        <br>
+        <select class="" name="">
+          <option value="1">League of Legends</option>
+          <option value="2">Counter Strike</option>
+        </select>
+        <br>
+        <br>
+        <button onclick="testPing()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+          Iniciar teste
+        </button>
+      </div>
+      <div class="mdl-cell mdl-cell--6-col-desktop">
+        <img src="img/loading.gif" id="loading" style="display: none">
+        <br><br>
+        <div id="ping">
+        </div>
       </div>
     </div>
+
   </body>
 </html>

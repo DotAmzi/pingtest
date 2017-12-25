@@ -2,3 +2,6 @@
 bower_components
 node_modules
 .DS_Store
+pages/components
+pingTest-darwin-x64
+pingTest.dmg

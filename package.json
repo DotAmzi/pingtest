@@ -10,9 +10,9 @@
     "electron-prebuilt": "^1.4.13"
   },
   "scripts": {
-    "build-windows": "electron-packager . Veritas --icon=icon.ico --platform=win32 --arch=x64 --ignore=node_modules/* --overwrite && electron-installer-windows --src Veritas-win32-x64/ --dest ./ --config=optionsWindows.json",
-    "build-mac": "electron-packager . Veritas --icon=icon.icns --platform=darwin --arch=x64 --ignore=node_modules/* --overwrite && electron-installer-dmg ./Veritas-darwin-x64/Veritas.app Veritas --overwrite --icon=icon.icns",
-    "build-linux": "electron-packager . Veritas --icon=icon.png --platform=linux --arch=x64 --ignore=node_modules/* --overwrite && electron-installer-debian --src Veritas-linux-x64/ --dest ./ --arch amd64 --config=optionsUbuntu.json"
+    "build-windows": "electron-packager . pingTest --icon=icon.ico --platform=win32 --arch=x64 --ignore=node_modules/* --overwrite && electron-installer-windows --src pingTest-win32-x64/ --dest ./ --config=optionsWindows.json",
+    "build-mac": "electron-packager . pingTest --icon=icon.icns --platform=darwin --arch=x64 --ignore=node_modules/* --overwrite && electron-installer-dmg ./pingTest-darwin-x64/pingTest.app pingTest --overwrite --icon=icon.icns",
+    "build-linux": "electron-packager . pingTest --icon=icon.png --platform=linux --arch=x64 --ignore=node_modules/* --overwrite && electron-installer-debian --src pingTest-linux-x64/ --dest ./ --arch amd64 --config=optionsUbuntu.json"
   },
   "dependencies": {
     "ping": "^0.2.2"

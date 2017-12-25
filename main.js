@@ -9,7 +9,7 @@ function createWindow () {
   win.loadURL(`file://${__dirname}/pages/ping.html`)
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  // win.webContents.openDevTools()
 
   var count = []
 
@@ -24,8 +24,8 @@ function createWindow () {
       ping.promise.probe('8.23.24.100')
       .then(res => {
         middle += res.time;
-        if(countUnique === 19){
-          event.sender.send('pingMiddle', middle/20);
+        if(countUnique === 49){
+          event.sender.send('pingMiddle', middle/50);
         }
       });
     })

@@ -1,0 +1,13 @@
+.demo-layout-transparent {
+  background: url('./img/lol.jpg') center / cover;
+  height: 300px
+}
+
+#ping{
+  width: 100%;
+  text-align: center;
+}
+
+#ping p{
+  font-size: 50px;
+}
