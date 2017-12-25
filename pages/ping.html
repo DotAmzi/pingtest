@@ -18,18 +18,26 @@
       async function testPing() {
         document.getElementById("loading").style.display = "block";
         document.getElementById("ping").style.display = "none";
-        ipcRenderer.send('testPing', 'hey');
+        ipcRenderer.send('testPing', document.getElementById("selectGame").value);
+      }
+      function changeGame(game){
+        if(game === '1'){
+          document.getElementById("bg-app").style.background = "url('./img/lol.jpg') center / cover";
+        }else{
+          document.getElementById("bg-app").style.background = "url('./img/csgo.jpeg') center / cover";
+        }
       }
     </script>
   </head>
   <body>
-    <div class="demo-layout-transparent">
+    <div id="bg-app" class="layout-header" style="background: url('./img/lol.jpg') center / cover">
     </div>
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--6-col-desktop" style="text-align: center">
+        <br><br>
         Selecione seu jogo
         <br>
-        <select class="" name="">
+        <select class="" name="" onchange="changeGame(this.value)" id="selectGame">
           <option value="1">League of Legends</option>
           <option value="2">Counter Strike</option>
         </select>

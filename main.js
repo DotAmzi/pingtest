@@ -20,8 +20,15 @@ function createWindow () {
   ipcMain.on('testPing', function(event, arg) {
 
     let middle = 0;
+
+    if(arg === '1'){
+      var ipGame = '8.23.24.100';
+    }else{
+      var ipGame = 'gru.valve.net';
+    }
+
     count.map(countUnique => {
-      ping.promise.probe('8.23.24.100')
+      ping.promise.probe(ipGame)
       .then(res => {
         middle += res.time;
         if(countUnique === 49){
