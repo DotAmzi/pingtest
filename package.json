@@ -2,6 +2,16 @@
   "name": "PingTest",
   "version": "0.6.0",
   "main": "main.js",
+  "author": {
+    "name": "Camilo Fernandes",
+    "email": "camilo.analista@gmail.com",
+    "url": "http://camilofernandesalves.github.io"
+  },
+  "options": {
+    "homepage": "http://www.google.com",
+  },
+  "icon": "./icon.ico",
+  "description": "Teste de ping para jogos",
   "devDependencies": {
     "electron-installer-debian": "^0.4.0",
     "electron-installer-dmg": "^0.2.0",
@@ -10,9 +20,9 @@
     "electron-prebuilt": "^1.4.13"
   },
   "scripts": {
-    "build-windows": "electron-packager . pingTest --icon=icon.ico --platform=win32 --arch=x64 --overwrite",
-    "build-mac": "electron-packager . pingTest --icon=icon.icns --platform=darwin --arch=x64 --ignore=node_modules/* --overwrite && electron-installer-dmg ./pingTest-darwin-x64/pingTest.app pingTest --overwrite --icon=icon.icns",
-    "build-linux": "electron-packager . pingTest --icon=icon.png --platform=linux --arch=x64 --ignore=node_modules/* --overwrite && electron-installer-debian --src pingTest-linux-x64/ --dest ./ --arch amd64 --config=optionsUbuntu.json"
+    "build-windows": "electron-packager . pingTest --icon=icon.ico --platform=win32 --arch=x64 --overwrite && electron-installer-windows --src ./pingTest-win32-x64 --dest ./ --config=optionsWindows.json",
+    "build-mac": "electron-packager . pingTest --icon=icon.icns --platform=darwin --arch=x64 --overwrite && electron-installer-dmg ./pingTest-darwin-x64/pingTest.app pingTest --overwrite --icon=icon.icns",
+    "build-linux": "electron-packager . pingTest --icon=icon.png --platform=linux --arch=x64 --overwrite && electron-installer-debian --src pingTest-linux-x64/ --dest ./ --arch amd64 --config=optionsUbuntu.json"
   },
   "dependencies": {
     "ping": "^0.2.2"
