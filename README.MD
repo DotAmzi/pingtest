@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Electron-1.5.0-red.svg) ![](https://img.shields.io/badge/NodeJS-4.2.6-green.svg) ![](https://img.shields.io/badge/Status-Working-blue.svg)
 
-##Aplicativo TestPing para Windows/Mac/Ubuntu
+## Aplicativo TestPing para Windows/Mac/Ubuntu
 
 
 **Processo de implementação**
@@ -11,7 +11,7 @@
 
 2.Logo em seguida instale as dependências
 
-`npm install`
+`npm install` e `bower install`
 
 3.Como último passso basta gerar o aplicativo e depois instalar
 
