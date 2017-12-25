@@ -15,7 +15,7 @@
           document.getElementById("ping").innerHTML = 'Seu  ping é: <p><br>' + parseInt(arg) + 'ms</p>';
         }, 5000);
       })
-      async function testPing() {
+      function testPing() {
         document.getElementById("loading").style.display = "block";
         document.getElementById("ping").style.display = "none";
         ipcRenderer.send('testPing', document.getElementById("selectGame").value);

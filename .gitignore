@@ -5,3 +5,4 @@ node_modules
 pages/components
 pingTest-darwin-x64
 pingTest.dmg
+pingTest-win32-x64
